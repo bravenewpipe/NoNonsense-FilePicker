@@ -6,6 +6,7 @@
 
 package com.nononsenseapps.filepicker.sample;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import androidx.activity.result.ActivityResult;
@@ -14,6 +15,7 @@ import androidx.activity.result.contract.ActivityResultContracts.StartActivityFo
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -179,6 +181,7 @@ public class NoNonsenseFilePicker extends AppCompatActivity {
         return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void codeDbOrFtpResult(final ActivityResult result) {
         if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
             // Use the provided utility method to parse the result
